@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Danielx2003/WebCrawler/issues"
   },
-  "homepage": "https://github.com/Danielx2003/WebCrawler#readme"
+  "homepage": "https://github.com/Danielx2003/WebCrawler#readme",
+  "devDependencies": {
+    "jest": "^29.6.2"
+  }
 }
