@@ -15,14 +15,10 @@ async function crawlPage(currentURL) {
         const htmlBody = (await resp.text())
 
         const squadURLs = await getSquadURLs(htmlBody, baseURL) //get the squad urls WORKING
-        console.log(squadURLs)
 
         const playerURLs = await getSquadInfo(squadURLs, baseURL) //get the player links from each team
-        console.log(playerURLs)
 
         const realPlayers = await getPlayerStats(playerURLs, baseURL)
-        console.log(realPlayers)
-        console.log("all done")
         run(realPlayers)
 
     } catch (err) {
@@ -32,17 +28,15 @@ async function crawlPage(currentURL) {
 
 }
 async function run(players) {
-    console.log("in run func")
     try {
         await client.connect();
         const db = client.db('footle');
-        console.log("got db")
         const collection = db.collection('players');
         for (const player of players) {
             const result = await collection.insertOne(player)
         }
         // Find the first document in the collection
-        console.log("all done")
+        console.log("Finished")
     } catch (err) {
         console.log(err)
     } finally {
@@ -69,17 +63,9 @@ async function getSquadInfo(squadURLs, baseURL) {
             console.log("error in getSquadInfo")
         }
     }
-    console.log(playerLinks.length)
     const playerObjectArray = []
     for (const squad of playerLinks) {
-        console.log(squad)
         playerObjectArray.push(getPlayerAttributes(squad))
-        /* this used to work
-        for (const player of squad) {
-            console.log(player)
-            playerObjectArray.push(getPlayerAttributes(player))
-        }
-        */
     }
     return playerLinks
 
@@ -114,7 +100,6 @@ function getPlayerLinks(htmlBody, baseURL) {
 }
 
 function getPlayerAttributes(htmlBody, playerURL) {
-    console.log("getting player attributes")
     const dom = new JSDOM(htmlBody) //creates a document object model of the html file
     const textElements = dom.window.document.getElementsByClassName('info-table__content info-table__content--regular') //gets the table elements
     const statElements = dom.window.document.getElementsByClassName('info-table__content info-table__content--bold') //gets the table elements
@@ -264,7 +249,6 @@ function getPlayerAttributes(htmlBody, playerURL) {
         count++;
 
     }
-    console.log(playerObj)
     return playerObj
 }
 
