@@ -3,7 +3,7 @@ const { JSDOM } = jsdom;
 const baseURL = 'https://transfermarkt.co.uk'
 
 const { MongoClient } = require('mongodb');
-const uri = `mongodb+srv://danielspicer:Scrappy2003@cluster0.qs66vcb.mongodb.net/?retryWrites=true&w=majority`
+const uri = "ADD USER LINK TO DATABASE"
 const client = new MongoClient(uri);
 
 async function crawlPage(currentURL) {
