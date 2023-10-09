@@ -17,7 +17,7 @@ You *may* also change the database name and collection name within the run funct
 
 Once complete, you will need to access a new terminal. This can be done with *CRTL-SHIFT-'*
 From here, ensure you are in the correct directory. 
-Then, type ```npm start *link*```, where ```*link*``` is a link to the ```www.transfermarkt.co.uk``` league.
+Then, type ```npm start LINK```, where ```LINK``` is a link to the ```www.transfermarkt.co.uk``` league.
 For example, running ```npm start https://www.transfermarkt.co.uk/premier-league/startseite/wettbewerb/GB1``` will scrape ALL data from the Premier League teams.
 Running ```npm start https://www.transfermarkt.co.uk/serie-a/startseite/wettbewerb/IT1``` will scrape ALL data from Serie A teams.
 
