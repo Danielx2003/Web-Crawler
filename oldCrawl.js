@@ -4,7 +4,6 @@ const baseURL = 'https://transfermarkt.co.uk'
 
 
 const { MongoClient } = require('mongodb');
-const uri = "mongodb+srv://danielspicer:Scrappy2003@cluster0.qs66vcb.mongodb.net/test?retryWrites=true&w=majority"
 const client = new MongoClient(uri);
 
 // import Squad from './Squad.js'
